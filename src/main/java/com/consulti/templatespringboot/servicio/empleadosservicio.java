@@ -2,8 +2,8 @@ package com.consulti.templatespringboot.servicio;
 
 import java.util.List;
 
-import com.example.practica.dominio.empleados;
-import com.example.practica.repositorio.empleadorepositorio;
+import com.consulti.templatespringboot.dominio.empleados;
+import com.consulti.templatespringboot.repositorio.empleadorepositorio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

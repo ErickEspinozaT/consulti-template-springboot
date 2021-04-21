@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div>
+	<h2 >Spring Boot Crud - Registro Empleados</h2>
+	<tr>
+		<div align = "left" >		   
+		     <h3><a  th:href="@{'/new'}">Agregar Nuevo</a></h3>     
+	    </div>
+	
+	</tr>
+	<tr>
+	
+	<div class="col-sm-5" align = "center">
+                 <div class="panel-body" align = "center" >
+                 <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      		<th>Empleado Id</th>
+            <th>Nnombre Empleado</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Telefono</th>
+            <th>Edit</th>
+            <th>Delete</th>
+   	</tr>
+  </thead>
+  <tbody>
+      <tr  th:each="Empleados:${ListaEmpleados}">
+		<td th:text="${Empleados.id}">ID EMPLEADO</td>
+		<td th:text="${Empleados.nombre_emp}">NOMBRE</td>
+		<td th:text="${Empleados.apellido_emp}">APELLIDO</td>
+		<td th:text="${Empleados.Edad_emp}">EDAD</td>	
+        <td th:text="${Empleados.telf_emp}">TELEFONO</td>				
+		<td>
+			<a th:href="@{'/edit/' + ${Empleados.id}}">Edit</a>
+		</td>							    
+		<td>
+			<a th:href="@{'/delete/' + ${Empleados.id}}">Delete</a>
+		</td>		    
+		</tr> 
+   
+  </tbody>
+</table>
+                    
+                 </div>
+
+            </div> 
+
+	</tr>
+
+	</tbody>
+	</table>
+	<div>
+</body>
+</html>

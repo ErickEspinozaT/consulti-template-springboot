@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="col-mod-3">
+        <div class="card card-body">
+            <span th:if="${session.usuario !=null}">Bienvenido/a <span class="font-italic" th:text="${session.usuario.nombre}"></span></span>
+        </div>
+
+
+        <form th:action="@{/logout}" method="POST">
+            <button type="submit"></button> Salir</form>
+    </div>
+</body>
+
+</html>

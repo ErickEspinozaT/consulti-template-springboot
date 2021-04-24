@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/stile.css">
+    <link rel="stylesheet" type="text/css" href="static/css/stile.css" th:href="@{/css/stile.css}">
+
     <title>Document</title>
 </head>
 
@@ -23,27 +24,30 @@
         <!-- Start Inputs -->
         <form th:action="@{/auth/registro}" th:object="${usuario}" method="POST">
 
-
-            <lable>Nombre</lable>
-            <input type="text" maxlength="10" placeholder="Ingrese su Nombre" th:field="*{nombre}">
-
-            <lable>Apellido</lable>
-            <input type="text" maxlength="10" placeholder="Ingrese su Apellido" th:field="*{apellido}">
-
-            <lable>Usuario</lable>
-            <input type="text" maxlength="10" placeholder="Ingrese su Usuario" th:field="*{usuario}">
-
-            <lable>Password</lable>
-            <input type="password" paceholder="*********" th:field="*{password}">
-
-            <lable>E-MAIL</lable>
-            <input type="email" placeholder="Ingrese su E-mail" th:field="*{email}">
-
-
+            <div class="form-group" id="nombre-group">
+                <lable>Nombre</lable>
+                <input type="text" maxlength="10" placeholder="Ingrese su Nombre" th:field="*{nombre}">
+            </div>
+            <div class="form-group" id="apellido-group">
+                <lable>Apellido</lable>
+                <input type="text" maxlength="10" placeholder="Ingrese su Apellido" th:field="*{apellido}">
+            </div>
+            <div class="form-group" id="username-group">
+                <lable>Usuario</lable>
+                <input type="text" maxlength="10" placeholder="Ingrese su Usuario" th:field="*{username}">
+            </div>
+            <div class="form-group" id="password-group">
+                <lable>Password</lable>
+                <input type="password" paceholder="*********" th:field="*{password}">
+            </div>
+            <div class="form-group" id="emil-group">
+                <lable>E-MAIL</lable>
+                <input type="email" placeholder="Ingrese su E-mail" th:field="*{email}">
+            </div>
             <!-- Start last button -->
             <br>
 
-            <a href="#"><button class="llb">Guardar</button></a>
+            <a href="#"><button type="submit" class="llb">Guardar</button></a>
         </form>
     </div>
     <!-- End last button -->

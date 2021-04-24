@@ -5,36 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/stile.css">
+    <link rel="stylesheet" type="text/css" href="static/css/stile.css" th:href="@{/css/stile.css}">
     <title>Document</title>
 </head>
 
 <body>
     <!-- Start Buttons -->
-    <div class="container">
-        <a href="#"><button class="active">Login</button></a>
+    <div class=" container ">
+        <a><button class="active ">Login</button></a>
 
 
-        <div class="clearfix"></div>
+        <div class="aler alert-danger mb-3" th:if="${param.error}">Credenciales Incorrectas</div>
         <!-- End Buttons -->
-        <br><br><br><br><br>
+        <br><br><br>
 
-        <p class="g">LOGIN</p>
+        <p class="g ">LOGIN</p>
 
         <!-- Start Inputs -->
+        <form th:action="@{/auth/login-post}" method="POST" role="form">
+            <div class="row form-group">
+                <lable>Usuario</lable>
+                <input type="text " maxlength="10 " placeholder="Ingrese su Usuario " name="username">
+            </div>
+            <div class="row form-group">
+                <lable>Password</lable>
+                <input type="password " paceholder="*********" name="password">
+            </div>
 
-        <lable>Usuario</lable>
-        <input type="text" maxlength="10" placeholder="Ingrese su Usuario">
+            <!-- Start last button -->
+            <br>
 
-        <lable>Password</lable>
-        <input type="password" paceholder="*********">
-
-
-        <!-- Start last button -->
-        <br>
-
-        <a href="#"><button class="llb">Entrar</button></a>
-
+            <a href="# "><button type="submit" class="llb ">Entrar</button></a>
+        </form>
     </div>
     <!-- End last button -->
 </body>

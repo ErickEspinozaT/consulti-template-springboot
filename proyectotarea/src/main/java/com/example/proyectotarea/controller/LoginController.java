@@ -1,8 +1,11 @@
 package com.example.proyectotarea.controller;
 
 
+import javax.validation.Valid;
+
 import com.example.proyectotarea.entity.Usuario;
 import com.example.proyectotarea.service.UsuarioService;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,14 +17,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
+   
+    @Autowired
+    private UsuarioService usuarioService;
+
     @GetMapping("/auth/login")
     public String login(Model model){
         model.addAttribute("usuario", new Usuario());
         return "login";
     }
-  
-    @Autowired
-    private UsuarioService usuarioService;
+
 
     @GetMapping("/auth/registro")
     private String registroForm (Model model){
@@ -29,7 +34,7 @@ public class LoginController {
         return "registro";
     }
     @PostMapping("/auth/registro")
-    public String registro(@ModelAttribute Usuario usuario,BindingResult result,Model model){
+    public String registro(@Valid @ModelAttribute Usuario usuario,BindingResult result,Model model){
         
         if(result.hasErrors()){
             return "redirect:/auth/registro"; 

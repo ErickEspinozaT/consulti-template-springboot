@@ -1,16 +1,22 @@
-body {
-    background-color: #fcfcfc;
+#row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
 }
 
-.center-div {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    background-color: #ccc;
-    border-radius: 3px;
+.button {
+    font-size: 1rem;
+    padding: .6rem 5.1rem .4rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    background: none;
+    color: inherit;
+    margin: 10px;
+    display: inline-block;
+    text-decoration: none;
 }

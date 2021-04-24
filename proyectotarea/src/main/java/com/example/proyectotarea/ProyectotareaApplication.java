@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-@ComponentScan({"com.example.proyectotarea.controller.InicioController.java"})
+@ComponentScan({"com.example.proyectotarea"})
 public class ProyectotareaApplication {
 
 	public static void main(String[] args) {

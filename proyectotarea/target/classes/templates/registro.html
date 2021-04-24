@@ -21,28 +21,30 @@
         <br>
         <br><br>
         <!-- Start Inputs -->
-
-        <lable>Nombre</lable>
-        <input type="text" maxlength="10" placeholder="Ingrese su Nombre">
-
-        <lable>Apellido</lable>
-        <input type="text" maxlength="10" placeholder="Ingrese su Apellido">
-
-        <lable>Usuario</lable>
-        <input type="text" maxlength="10" placeholder="Ingrese su Usuario">
-
-        <lable>Password</lable>
-        <input type="password" paceholder="*********">
-
-        <lable>E-MAIL</lable>
-        <input type="email" placeholder="Ingrese su E-mail">
+        <form th:action="@{/auth/registro}" th:object="${usuario}" method="POST">
 
 
-        <!-- Start last button -->
-        <br>
+            <lable>Nombre</lable>
+            <input type="text" maxlength="10" placeholder="Ingrese su Nombre" th:field="*{nombre}">
 
-        <a href="#"><button class="llb">Guardar</button></a>
+            <lable>Apellido</lable>
+            <input type="text" maxlength="10" placeholder="Ingrese su Apellido" th:field="*{apellido}">
 
+            <lable>Usuario</lable>
+            <input type="text" maxlength="10" placeholder="Ingrese su Usuario" th:field="*{usuario}">
+
+            <lable>Password</lable>
+            <input type="password" paceholder="*********" th:field="*{password}">
+
+            <lable>E-MAIL</lable>
+            <input type="email" placeholder="Ingrese su E-mail" th:field="*{email}">
+
+
+            <!-- Start last button -->
+            <br>
+
+            <a href="#"><button class="llb">Guardar</button></a>
+        </form>
     </div>
     <!-- End last button -->
 </body>

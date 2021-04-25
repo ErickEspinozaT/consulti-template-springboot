@@ -14,23 +14,42 @@
 </head>
 
 <body>
+
+    <header>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li>
+                        <span th:if="${session.usuario !=null}" class="unico">BIENVENIDO/A <span id="usere" class="font-italic" th:text="${session.usuario.nombre}"></span></span>
+
+                    </li>
+                    <li>
+                        <form th:action="@{/logout}" method="POST">
+                            <button type="submit" class="hf">SALIR</button></form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <CENTER>
         <H1>GESTOR DE TAREA</H1>
     </CENTER>
+
     <div id="main-container1">
-        <lable>NOMBRE TAREA: </lable>
-        <input type="text" maxlength="10" placeholder="INGRESE TAREA">
-        <lable>USUARIO:</lable>
-        <input type="text" maxlength="10" placeholder="INGRESE USUARIO">
-        <lable>FECHA FIN:</lable>
-        <input type="DATE" maxlength="10" min="2021-04-23" placeholder="INGRESE FECHA">
-        <button type="submit" class="llb">CREAR</button>
+
+        <a th:href="@{'/new'}"><button type="submit " class="llb ">CREAR</button></a>
     </div>
-    <div id="main-container">
+
+
+
+
+    <div id="main-container ">
 
         <table>
             <thead>
                 <tr>
+                    <th>ID TAREA</th>
                     <th>NOMBRE TAREA</th>
                     <th>USUARIO</th>
                     <th>FECHA FIN</th>
@@ -40,14 +59,22 @@
                 </tr>
             </thead>
 
-            <tr>
-                <td>PROGRAMAR</td>
-                <td>MIKE</td>
-                <td>25-04-2021</td>
-                <td>PROCESO</td>
-                <td>EDITAR</td>
-                <td>ELIMINAR</td>
-            </tr>
+            <tbody>
+                <tr th:each="Tarea:${ListaTarea}">
+                    <td th:text="${Tarea.id}">ID </td>
+                    <td th:text="${Tarea.nombre}">NOMBRE</td>
+                    <td th:text="${Tarea.usuario}">USUARIO</td>
+                    <td th:text="${Tarea.Fecha_Fin}">FECHA_FIN</td>
+                    <td th:text="${Tarea.estado}" id="campoE">ESTADO</td>
+                    <td>
+                        <a>Edit</a>
+                    </td>
+                    <td>
+                        <a>Delete</a>
+                    </td>
+                </tr>
+
+            </tbody>>
 
         </table>
     </div>
@@ -55,3 +82,43 @@
 </body>
 
 </html>
+
+
+<script>
+    window.onload = function() {
+        var fecha = new Date(); //Fecha actual
+        var mes = fecha.getMonth() + 1; //obteniendo mes
+        var dia = fecha.getDate(); //obteniendo dia
+        var ano = fecha.getFullYear(); //obteniendo año
+        if (dia < 10)
+            dia = '0' + dia; //agrega cero si el menor de 10
+        if (mes < 10)
+            mes = '0' + mes //agrega cero si el menor de 10
+        var date = new String(ano + '-' + mes + '-' + dia);
+        document.getElementById('fechaActual').value = date;
+        fechaActual.setAttribute('min', date);
+    }
+</script>
+<script language="javascript">
+    var x;
+
+    x = document.getElementById("campoE").textContent;
+
+    if (x == "PROCESO") {
+        document.getElementById("campoE").style.backgroundColor = "#66ff33";
+    } else {
+        if (x == "FINALIZADA") {
+            document.getElementById("campoE").style.backgroundColor = "#FF1A1A";
+        } else {
+            if (x == "PAUSADO") {
+                document.getElementById("campoE").style.backgroundColor = "#FFFC1A";
+            }
+        }
+    }
+</script>
+<script>
+    var c;
+    c = document.getElementById("usere").textContent;
+    document.getElementById("usuref").value = c;
+    document.getElementById("est").value = "PROCESO";
+</script>

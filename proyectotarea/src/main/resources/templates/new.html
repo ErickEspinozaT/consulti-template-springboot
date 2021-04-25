@@ -7,14 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="static/css/ingresoTarea.css" th:href="@{/css/ingresoTarea.css}">
 
-
-
     <title>Document</title>
-
 </head>
 
 <body>
-
     <header>
         <div class="menu">
             <nav>
@@ -32,52 +28,24 @@
         </div>
     </header>
 
+
     <CENTER>
-        <H1>GESTOR DE TAREA</H1>
+        <H1>INGRESO DE TAREA</H1>
     </CENTER>
 
+
     <div id="main-container1">
-
-        <a th:href="@{'/new'}"><button type="submit " class="llb ">CREAR</button></a>
+        <lable>NOMBRE TAREA: </lable>
+        <input type="text" maxlength="10" placeholder="INGRESE TAREA">
+        <lable>USUARIO:</lable>
+        <input type="text" maxlength="10" placeholder="INGRESE USUARIO" readonly id="usuref">
+        <lable>ESTADO:</lable>
+        <input type="text" maxlength="10" readonly id="est">
+        <lable>FECHA FIN:</lable>
+        <input type="date" id="fechaActual">
+        <button type="submit " class="llb ">CREAR</button >
     </div>
 
-
-
-
-    <div id="main-container ">
-
-        <table>
-            <thead>
-                <tr>
-                    <th>ID TAREA</th>
-                    <th>NOMBRE TAREA</th>
-                    <th>USUARIO</th>
-                    <th>FECHA FIN</th>
-                    <th>ESTADO</th>
-                    <th>EDITAR</th>
-                    <th>ELIMINAR</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr th:each="Tarea:${ListaTarea}">
-                    <td th:text="${Tarea.id}">ID </td>
-                    <td th:text="${Tarea.nombre}">NOMBRE</td>
-                    <td th:text="${Tarea.usuario}">USUARIO</td>
-                    <td th:text="${Tarea.Fecha_Fin}">FECHA_FIN</td>
-                    <td th:text="${Tarea.estado}" id="campoE">ESTADO</td>
-                    <td>
-                        <a>Edit</a>
-                    </td>
-                    <td>
-                        <a>Delete</a>
-                    </td>
-                </tr>
-
-            </tbody>>
-
-        </table>
-    </div>
 
 </body>
 
@@ -99,23 +67,7 @@
         fechaActual.setAttribute('min', date);
     }
 </script>
-<script language="javascript">
-    var x;
 
-    x = document.getElementById("campoE").textContent;
-
-    if (x == "PROCESO") {
-        document.getElementById("campoE").style.backgroundColor = "#66ff33";
-    } else {
-        if (x == "FINALIZADA") {
-            document.getElementById("campoE").style.backgroundColor = "#FF1A1A";
-        } else {
-            if (x == "PAUSADO") {
-                document.getElementById("campoE").style.backgroundColor = "#FFFC1A";
-            }
-        }
-    }
-</script>
 <script>
     var c;
     c = document.getElementById("usere").textContent;

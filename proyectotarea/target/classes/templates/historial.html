@@ -26,32 +26,33 @@
         <a th:href="@{'/volver'}"><button type="submit " class="llb ">VOLVER</button></a>
 
     </div>
-    <div id="main-container ">
+    <div id="main-container">
 
         <table>
             <thead>
                 <tr>
+                    <th>ID </th>
                     <th>ID TAREA</th>
                     <th>NOMBRE TAREA</th>
-                    <th>USUARIO</th>
-                    <th>FECHA FIN</th>
                     <th>ESTADO</th>
+                    <th>FACHA ATUALIZACION</th>
 
                 </tr>
             </thead>
 
             <tbody>
                 <tr th:each="Historial:${ListaHistorial}">
-                    <td th:text="${Historial.id}">ID </td>
-                    <td th:text="${Historial.id_tarea}">ID TAREA</td>
-                    <td th:text="${Historial.nombre_tarea}">NOMBRE</td>
-                    <td th:text="${Historial.estado}" class="clase">ESTADO</td>
-                    <td th:text="${Historial.fecha}" class="clase">FECHA</td>
+                    <td th:text="${Historial.id}"></td>
+                    <td th:text="${Historial.id_tarea}"></td>
+                    <td th:text="${Historial.nombre_tarea}"></td>
+                    <td th:text="${Historial.estado}" class="clase"></td>
+                    <td th:text="${Historial.fecha}"></td>
                 </tr>
 
             </tbody>>
 
         </table>
+    </div>
     </div>
 
 </body>

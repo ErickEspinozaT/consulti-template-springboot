@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="static/css/ingresoTarea.css" th:href="@{/css/ingresoTarea.css}">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
     <title>Document</title>
@@ -65,12 +65,12 @@
                     <td th:text="${Tarea.nombre}">NOMBRE</td>
                     <td th:text="${Tarea.usuario}">USUARIO</td>
                     <td th:text="${Tarea.Fecha_Fin}">FECHA_FIN</td>
-                    <td th:text="${Tarea.estado}" id="campoE">ESTADO</td>
+                    <td th:text="${Tarea.estado}" class="clase">ESTADO</td>
                     <td>
-                        <a>Edit</a>
+                        <a th:href="@{'/edit/' + ${Tarea.id}}">Edit</a>
                     </td>
                     <td>
-                        <a>Delete</a>
+                        <a th:href="@{'/delete/' + ${Tarea.id}}">Delete</a>
                     </td>
                 </tr>
 
@@ -99,7 +99,7 @@
         fechaActual.setAttribute('min', date);
     }
 </script>
-<script language="javascript">
+<!-- <script language="javascript">
     var x;
 
     x = document.getElementById("campoE").textContent;
@@ -115,7 +115,29 @@
             }
         }
     }
+</script> -->
+
+<script>
+    $(".clase").each(function() {
+        //En cada uno ponemos el texto en negrita
+        var x = $(this).text()
+        var color = $(this)
+        if (x == "PROCESO") {
+            color.css("backgroundColor", "RGB(156, 245, 134 )");
+        } else {
+            if (x == "FINALIZADA") {
+                color.css("backgroundColor", "rgb(203, 87, 87 )");
+
+            } else {
+                if (x == "PAUSADO") {
+                    color.css("backgroundColor", "rgb(255, 253, 115 )");
+                }
+            }
+        }
+        $(this).css("font-weight", "bold");
+    });
 </script>
+
 <script>
     var c;
     c = document.getElementById("usere").textContent;

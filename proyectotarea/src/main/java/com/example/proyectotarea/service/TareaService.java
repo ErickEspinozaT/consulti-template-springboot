@@ -22,7 +22,7 @@ public class TareaService {
         repo.save(std);
     }
   
-    public Tarea get(Long id){
+    public Tarea listarid(Long id){
         return repo.findById(id).get();
     }
   

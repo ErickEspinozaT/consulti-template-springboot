@@ -13,8 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class TareaController {
@@ -41,6 +43,21 @@ public class TareaController {
     @RequestMapping(value="/save", method = RequestMethod.POST)
     public String savetarea(@ModelAttribute("Tarea") Tarea std){
         tareaService.Save(std);
-        return null;
+        return "redirect:/private/index";
     }
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditEmpleadoPAge(@PathVariable(name="id")Long id){
+        ModelAndView mav=new ModelAndView("edit");
+        Tarea std =tareaService.listarid(id);
+        mav.addObject("Tareas", std);
+        return mav;
+        
+    }
+   
+    @RequestMapping("/delete/{id}")
+public String deleteempleado(@PathVariable(name="id")Long id){
+    tareaService.delete(id);
+    return "redirect:/private/index";
+}
 }

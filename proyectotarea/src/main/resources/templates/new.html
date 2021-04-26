@@ -33,18 +33,22 @@
         <H1>INGRESO DE TAREA</H1>
     </CENTER>
 
+    <form action="#" th:action="@{/save}" th:object="${Tareas}" method="post">
 
-    <div id="main-container1">
-        <lable>NOMBRE TAREA: </lable>
-        <input type="text" maxlength="10" placeholder="INGRESE TAREA">
-        <lable>USUARIO:</lable>
-        <input type="text" maxlength="10" placeholder="INGRESE USUARIO" readonly id="usuref">
-        <lable>ESTADO:</lable>
-        <input type="text" maxlength="10" readonly id="est">
-        <lable>FECHA FIN:</lable>
-        <input type="date" id="fechaActual">
-        <button type="submit " class="llb ">CREAR</button >
-    </div>
+        <div id="main-container1">
+            <lable>ID: </lable>
+            <input type="text" th:field="*{id}" maxlength="10" placeholder="INGRESE TAREA">
+            <lable>NOMBRE TAREA: </lable>
+            <input type="text" th:field="*{nombre}" maxlength="10" placeholder="INGRESE TAREA">
+            <lable>USUARIO:</lable>
+            <input type="text" th:field="*{usuario}" maxlength="10" placeholder="INGRESE USUARIO" readonly>
+            <lable>ESTADO:</lable>
+            <input type="text" th:field="*{estado}" maxlength="10" readonly id="est">
+            <lable>FECHA FIN:</lable>
+            <input type="date" th:field="*{Fecha_Fin}">
+            <button type="submit " class="llb ">CREAR</button >
+        </div>
+    </form>
 
 
 </body>

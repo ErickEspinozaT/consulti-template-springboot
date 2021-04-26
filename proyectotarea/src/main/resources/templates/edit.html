@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/ingresoTarea.css" th:href="@{/css/ingresoTarea.css}">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" th:action="@{/save}" th:object="${Tareas}" method="post">
+
+        <div id="main-container1">
+            <lable>ID: </lable>
+            <input type="text" th:field="*{id}" maxlength="10" placeholder="INGRESE TAREA" readonly>
+            <lable>NOMBRE TAREA: </lable>
+            <input type="text" th:field="*{nombre}" maxlength="10" placeholder="INGRESE TAREA">
+            <lable>USUARIO:</lable>
+            <input type="text" th:field="*{usuario}" maxlength="10" placeholder="INGRESE USUARIO" readonly>
+            <lable>ESTADO:</lable>
+            <input type="text" th:field="*{estado}" list="productName">
+            <datalist id="productName">
+                <option value="PROCESO">PROCESO</option>
+                <option value="PAUSADO">PAUSADO</option>
+                <option value="FINALIZADA">FINALIZADA</option>
+            </datalist>
+            <lable>FECHA FIN:</lable>
+            <input type="date" th:field="*{Fecha_Fin}" id="fechaActual">
+            <button type="submit " class="llb ">CREAR</button >
+        </div>
+    </form>
+
+</body>
+
+</html>

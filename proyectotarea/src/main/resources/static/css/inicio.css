@@ -1,3 +1,7 @@
+body {
+    background: #ece6e6;
+}
+
 #row {
     display: flex;
     flex-direction: row;

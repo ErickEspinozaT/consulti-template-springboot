@@ -1,0 +1,133 @@
+body {
+    background: #ece6e6;
+}
+
+#main-container {
+    margin: 550px;
+    width: 400px;
+}
+
+#main-container1 {
+    margin: 50px auto;
+    width: 400px;
+    border: #0F362D;
+}
+
+table {
+    background-color: #71aa9e;
+    text-align: center;
+    border-collapse: collapse;
+    margin-left: 620px;
+}
+
+th,
+td {
+    padding: 20px;
+}
+
+thead {
+    background-color: #7baca0;
+    border-bottom: solid 5px #668d84;
+    color: black;
+}
+
+tr:hover td {
+    background-color: #5edada;
+    color: rgb(7, 7, 7);
+}
+
+input {
+    display: block;
+    padding: 5px;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    width: 300px;
+    border-style: none;
+    border-bottom: solid 1px #ccc;
+    background-color: #c8d3e0;
+    font-family: tahoma;
+    font-size: 15px;
+    color: rgb(12, 12, 12);
+}
+
+lable {
+    margin-left: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.llb {
+    display: block;
+    margin-top: 20px;
+    margin-left: 38%;
+    background-color: #26B297;
+    border-radius: 9px;
+    padding: 4px 10px;
+    height: 30px;
+    width: 80px;
+    color: white;
+    border-style: none;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+}
+
+header {
+    background: #1e2427;
+    width: 100%;
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.menu {
+    width: 98%;
+}
+
+.unico {
+    color: #ece6e6;
+}
+
+nav {
+    float: right;
+}
+
+nav ul li {
+    list-style: none;
+    margin-left: 10px;
+    padding: 12px 0;
+    float: left;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(250, 250, 250);
+    font-weight: bold;
+}
+
+nav ul li a::before {
+    background: rgb(248, 244, 244);
+    height: 1px;
+    top: 0;
+    position: absolute;
+    transition: width 0.2s;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+.hf {
+    margin-top: -10px;
+    margin-left: 10%;
+    background-color: #26B297;
+    border-radius: 9px;
+    height: 30px;
+    width: 80px;
+    color: white;
+    border-style: none;
+    font-weight: bold;
+    cursor: pointer;
+}

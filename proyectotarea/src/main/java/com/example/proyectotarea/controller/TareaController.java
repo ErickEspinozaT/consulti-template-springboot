@@ -1,9 +1,13 @@
 package com.example.proyectotarea.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import com.example.proyectotarea.entity.Historial;
 import com.example.proyectotarea.entity.Tarea;
 import com.example.proyectotarea.entity.Usuario;
+import com.example.proyectotarea.service.HistorialService;
 import com.example.proyectotarea.service.TareaService;
 import com.example.proyectotarea.service.UsuarioService;
 
@@ -26,6 +30,9 @@ public class TareaController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private HistorialService historialService;
     
     @GetMapping("/new")
     public String add(Authentication auth,HttpSession session,Model model){
@@ -60,4 +67,19 @@ public String deleteempleado(@PathVariable(name="id")Long id){
     tareaService.delete(id);
     return "redirect:/private/index";
 }
+
+
+@GetMapping("/histo")
+public String viewHomePage (Model modelo){
+    List<Historial> listhistorial =historialService.listAll();
+    modelo.addAttribute("ListaHistorial",listhistorial);
+    
+    return "historial";
+}
+
+@GetMapping("/volver")
+public String volverH(){
+    return "redirect:/private/index";
+}
+
 }

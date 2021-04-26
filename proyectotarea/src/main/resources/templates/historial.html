@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/historial.css" th:href="@{/css/historial.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+
+
+    <CENTER>
+        <H1>HISTORIAL DE TAREA</H1>
+    </CENTER>
+
+    <div id="main-container1">
+
+        <a th:href="@{'/volver'}"><button type="submit " class="llb ">VOLVER</button></a>
+
+    </div>
+    <div id="main-container ">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID TAREA</th>
+                    <th>NOMBRE TAREA</th>
+                    <th>USUARIO</th>
+                    <th>FECHA FIN</th>
+                    <th>ESTADO</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="Historial:${ListaHistorial}">
+                    <td th:text="${Historial.id}">ID </td>
+                    <td th:text="${Historial.id_tarea}">ID TAREA</td>
+                    <td th:text="${Historial.nombre_tarea}">NOMBRE</td>
+                    <td th:text="${Historial.estado}" class="clase">ESTADO</td>
+                    <td th:text="${Historial.fecha}" class="clase">FECHA</td>
+                </tr>
+
+            </tbody>>
+
+        </table>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    $(".clase").each(function() {
+        //En cada uno ponemos el texto en negrita
+        var x = $(this).text()
+        var color = $(this)
+        if (x == "PROCESO") {
+            color.css("backgroundColor", "RGB(156, 245, 134 )");
+        } else {
+            if (x == "FINALIZADA") {
+                color.css("backgroundColor", "rgb(203, 87, 87 )");
+
+            } else {
+                if (x == "PAUSADO") {
+                    color.css("backgroundColor", "rgb(255, 253, 115 )");
+                }
+            }
+        }
+        $(this).css("font-weight", "bold");
+    });
+</script>

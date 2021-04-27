@@ -42,9 +42,6 @@
         <a th:href="@{'/histo'}"><button type="submit " class="llb ">Historial</button></a>
     </div>
 
-
-
-
     <div id="main-container ">
 
         <table>
@@ -61,18 +58,18 @@
             </thead>
 
             <tbody>
-                <tr th:each="Tarea:${ListaTarea}">
+                <tr th:each="Tarea:${ListaTarea}" class="clase">
                     <td th:text="${Tarea.id}">ID </td>
                     <td th:text="${Tarea.nombre}">NOMBRE</td>
                     <td th:text="${Tarea.usuario}">USUARIO</td>
                     <td th:text="${Tarea.Fecha_Fin}">FECHA_FIN</td>
-                    <td th:text="${Tarea.estado}" class="clase">ESTADO</td>
-                    <td>
-                        <a th:href="@{'/edit/' + ${Tarea.id}}" class="eaaadt" data-estado="${Tarea.estado}">Edit</a>
+                    <td th:text="${Tarea.estado}" class="estado">ESTADO</td>
+                    <td class="boton">
+                        <a th:href="@{'/edit/' + ${Tarea.id}}">Edit</a>
                     </td>
                     <td>
 
-                        <a th:href="@{ '/delete/' + ${Tarea.id}}">Delete</a>
+                        <a th:href=" @{ '/delete/' + ${Tarea.id}} ">Delete</a>
                     </td>
                 </tr>
             </tbody>>
@@ -82,45 +79,30 @@
 
 </html>
 
-
 <script>
-    window.onload = function() {
-        var fecha = new Date(); //Fecha actual
-        var mes = fecha.getMonth() + 1; //obteniendo mes
-        var dia = fecha.getDate(); //obteniendo dia
-        var ano = fecha.getFullYear(); //obteniendo año
-        if (dia < 10)
-            dia = '0' + dia; //agrega cero si el menor de 10
-        if (mes < 10)
-            mes = '0' + mes //agrega cero si el menor de 10
-        var date = new String(ano + '-' + mes + '-' + dia);
-        document.getElementById('fechaActual').value = date;
-        fechaActual.setAttribute('min', date);
-    }
-</script>
+    //$(".clase ").each(function() {
+    //  console.log((this))
+    //});
+    var valores = "";
 
-<script>
-    $(".clase ").each(function() {
-        var x = $(this).text()
-        var color = $(this)
-        if (x == "PROCESO") {
-            color.css("backgroundColor ", "RGB(156, 245, 134 )");
-        } else {
-            if (x == "FINALIZADA") {
-                color.css("backgroundColor ", "rgb(203, 87, 87 )");
-            } else {
-                if (x == "PAUSADO") {
-                    color.css("backgroundColor ", "rgb(255, 253, 115 )");
-                }
-            }
+    // Obtenemos todos los valores contenidos en los <td> de la fila
+    // seleccionada
+    var estado = 0;
+
+    $(".estado").parent("tr").find("td").each(function() {
+        if ($(this).html() == "FINALIZADA") {
+            estado = 1;
+            $(this).css("backgroundColor", "rgb(203, 87, 87 ) ");
+        } else if ($(this).html() == "PROCESO") {
+            estado = 0;
+            $(this).css("backgroundColor", "RGB(156, 245, 134 ) ");
+        } else if ($(this).html() == "PAUSADO") {
+            estado = 0;
+            $(this).css("backgroundColor", "rgb(255, 253, 115 ) ");
         }
+        if (estado == 1 && (this).className == "boton") {
+            $(this).remove();
 
+        }
     });
 </script>
-<!-- 
-<script>
-    var c;
-    c = document.getElementById("usere ").textContent;
-    document.getElementById("usuref ").value = c;
-    document.getElementById("est ").value = "PROCESO ";
-</script> -->

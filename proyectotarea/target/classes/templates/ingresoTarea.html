@@ -67,8 +67,8 @@
                     <td th:text="${Tarea.usuario}">USUARIO</td>
                     <td th:text="${Tarea.Fecha_Fin}">FECHA_FIN</td>
                     <td th:text="${Tarea.estado}" class="clase">ESTADO</td>
-                    <td id="edt">
-                        <a th:href="@{'/edit/' + ${Tarea.id}}">Edit</a>
+                    <td>
+                        <a th:href="@{'/edit/' + ${Tarea.id}}" class="edt">Edit</a>
                     </td>
                     <td>
                         <a th:href="@{'/delete/' + ${Tarea.id}}">Delete</a>
@@ -120,7 +120,7 @@
 
 <script>
     $(".clase").each(function() {
-        //En cada uno ponemos el texto en negrita
+
         var x = $(this).text()
         var color = $(this)
         if (x == "PROCESO") {
@@ -128,16 +128,13 @@
         } else {
             if (x == "FINALIZADA") {
                 color.css("backgroundColor", "rgb(203, 87, 87 )");
-
-
-
             } else {
                 if (x == "PAUSADO") {
                     color.css("backgroundColor", "rgb(255, 253, 115 )");
                 }
             }
         }
-        $(this).css("font-weight", "bold");
+
     });
 </script>
 

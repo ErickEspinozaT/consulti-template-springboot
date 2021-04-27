@@ -67,19 +67,17 @@
                     <td th:text="${Tarea.usuario}">USUARIO</td>
                     <td th:text="${Tarea.Fecha_Fin}">FECHA_FIN</td>
                     <td th:text="${Tarea.estado}" class="clase">ESTADO</td>
-                    <td id="edt">
-                        <a th:href="@{'/edit/' + ${Tarea.id}}">Edit</a>
+                    <td>
+                        <a th:href="@{'/edit/' + ${Tarea.id}}" class="eaaadt" data-estado="${Tarea.estado}">Edit</a>
                     </td>
                     <td>
-                        <a th:href="@{'/delete/' + ${Tarea.id}}">Delete</a>
+
+                        <a th:href="@{ '/delete/' + ${Tarea.id}}">Delete</a>
                     </td>
                 </tr>
-
             </tbody>>
-
         </table>
     </div>
-
 </body>
 
 </html>
@@ -100,50 +98,29 @@
         fechaActual.setAttribute('min', date);
     }
 </script>
-<!-- <script language="javascript">
-    var x;
-
-    x = document.getElementById("campoE").textContent;
-
-    if (x == "PROCESO") {
-        document.getElementById("campoE").style.backgroundColor = "#66ff33";
-    } else {
-        if (x == "FINALIZADA") {
-            document.getElementById("campoE").style.backgroundColor = "#FF1A1A";
-        } else {
-            if (x == "PAUSADO") {
-                document.getElementById("campoE").style.backgroundColor = "#FFFC1A";
-            }
-        }
-    }
-</script> -->
 
 <script>
-    $(".clase").each(function() {
-        //En cada uno ponemos el texto en negrita
+    $(".clase ").each(function() {
         var x = $(this).text()
         var color = $(this)
         if (x == "PROCESO") {
-            color.css("backgroundColor", "RGB(156, 245, 134 )");
+            color.css("backgroundColor ", "RGB(156, 245, 134 )");
         } else {
             if (x == "FINALIZADA") {
-                color.css("backgroundColor", "rgb(203, 87, 87 )");
-
-
-
+                color.css("backgroundColor ", "rgb(203, 87, 87 )");
             } else {
                 if (x == "PAUSADO") {
-                    color.css("backgroundColor", "rgb(255, 253, 115 )");
+                    color.css("backgroundColor ", "rgb(255, 253, 115 )");
                 }
             }
         }
-        $(this).css("font-weight", "bold");
+
     });
 </script>
-
+<!-- 
 <script>
     var c;
-    c = document.getElementById("usere").textContent;
-    document.getElementById("usuref").value = c;
-    document.getElementById("est").value = "PROCESO";
-</script>
+    c = document.getElementById("usere ").textContent;
+    document.getElementById("usuref ").value = c;
+    document.getElementById("est ").value = "PROCESO ";
+</script> -->

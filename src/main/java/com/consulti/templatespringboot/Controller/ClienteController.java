@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+//@PreAuthorize("hasRole('ADMIN')") --> para darle permiso solo al administrador 
 
 @RestController
 @RequestMapping("Cliente")

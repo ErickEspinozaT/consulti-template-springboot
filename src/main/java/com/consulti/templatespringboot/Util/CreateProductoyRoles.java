@@ -1,6 +1,7 @@
 package com.consulti.templatespringboot.Util;
 
 import com.consulti.templatespringboot.Entity.Producto;
+
 import com.consulti.templatespringboot.Service.ProductoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,11 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class CreateProducto implements CommandLineRunner  {
+public class CreateProductoyRoles implements CommandLineRunner  {
     @Autowired
     ProductoService productoService;
+  
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -28,5 +31,7 @@ public class CreateProducto implements CommandLineRunner  {
     //  productoService.Save(productoA);
     //  productoService.Save(productoB);
     //  productoService.Save(productoC);
+       
+         
     }
 }

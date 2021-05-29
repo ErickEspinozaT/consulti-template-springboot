@@ -40,6 +40,9 @@ public class Recaudacion {
     }
 
 
+   
+
+
     public Recaudacion( Date fecha, double valor, Cliente cliente) {
         
         this.fecha = fecha;
